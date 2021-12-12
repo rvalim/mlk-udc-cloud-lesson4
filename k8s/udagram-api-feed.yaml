@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: udagram-api-feed
+  name: udagram-api-feed
+  namespace: udagram
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api-feed
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: udagram-api-feed
+    spec:
+      containers:
+      - image: lim0nes/udagram-api-feed:latest
+        name: udagram-api-feed
+        resources: {}
+        envFrom:
+          - configMapRef:
+              name: udagram-cm
+          - secretRef:
+              name: udagram-secret
+status: {}

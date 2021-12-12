@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: reverseproxy
+  name: reverseproxy
+  namespace: udagram
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reverseproxy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: reverseproxy
+    spec:
+      containers:
+      - image: lim0nes/reverseproxy:latest
+        name: reverseproxy
+        resources: {}
+        ports:
+          - containerPort: 8080
+      restartPolicy: Always
+status: {}
