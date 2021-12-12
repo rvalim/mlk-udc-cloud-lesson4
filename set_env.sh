@@ -1,9 +1,0 @@
-export DB_USERNAME=admin
-export DB_PASS=12345678
-export DB_NAME=udagram2_dev
-export DB_HOST=udc-cloud-exe2.cc7or3d6f7so.us-east-1.rds.amazonaws.com
-export DB_DIALECT=mysql
-export AWS_REGION=us-east-1
-export AWS_PROFILE=dev
-export AWS_BUCKET=udc-s3-exe2a
-export JWT_SECRET=blablabla
