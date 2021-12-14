@@ -18,15 +18,21 @@ spec:
       labels:
         app: udagram-api-feed
     spec:
+      volumes:
+        - name: aws-secret
+          secret:
+            secretName: aws-secret
       containers:
       - image: lim0nes/udagram-api-feed:latest
         name: udagram-api-feed
         resources: {}
+        volumeMounts:
+          - name: aws-secret
+            mountPath: "root/.aws"
+            readOnly: true
         envFrom:
           - configMapRef:
               name: udagram-cm
           - secretRef:
               name: udagram-secret
-          - secretRef:
-              name: aws-secret
 status: {}
