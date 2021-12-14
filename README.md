@@ -7,16 +7,16 @@ Here you will find the solution for the exercises.
 
 ```
 ...
-├── k8s/						                 # Constains all k8s yaml files
-├── udagram-api-feed/ 			      # API feed service code files
-├── udagram-api-user/ 			      # API user service code files
-├── udagram-frontend/			       # FrontEnd application code files
-├── reverseproxy/ 		           # NGinx project used as reverse proxy to connect with the services/
+├── k8s/						# Constains all k8s yaml files
+├── udagram-api-feed/ 			# API feed service code files
+├── udagram-api-user/ 			# API user service code files
+├── udagram-frontend/			# FrontEnd application code files
+├── reverseproxy/ 		        # NGinx project used as reverse proxy to connect with the services/
 ├── ... 
-├── .travis.yml 				           # Yaml file to configure travis pipelines
+├── .travis.yml 				# Yaml file to configure travis pipelines
 ├── docker-compose-build.yaml 	# Docker helper file, used for building purposes
-├── docker-compose.yaml 		     # Docker helper file, used to run the solution locally
-├── udacity-c2-restapi.json 	  # Contains all endpoints and tests configured
+├── docker-compose.yaml 		# Docker helper file, used to run the solution locally
+├── udacity-c2-restapi.json 	# Contains all endpoints and tests configured
 ├── ...
 └── ...
 ```
