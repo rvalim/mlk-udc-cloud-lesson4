@@ -20,6 +20,7 @@ spec:
     spec:
       containers:
       - image: lim0nes/reverseproxy:latest
+        imagePullPolicy: Always
         name: reverseproxy
         resources: {}
         ports:

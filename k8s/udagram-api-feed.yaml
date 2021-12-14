@@ -27,4 +27,6 @@ spec:
               name: udagram-cm
           - secretRef:
               name: udagram-secret
+          - secretRef:
+              name: aws-secret
 status: {}

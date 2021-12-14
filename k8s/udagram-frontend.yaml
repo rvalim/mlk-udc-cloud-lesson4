@@ -21,5 +21,6 @@ spec:
       containers:
       - image: lim0nes/udagram-frontend:latest
         name: udagram-frontend
+        imagePullPolicy: Always
         resources: {}
 status: {}

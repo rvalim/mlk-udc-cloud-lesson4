@@ -5,7 +5,7 @@ data:
   AWS_REGION: us-east-1
   DB_DIALECT: mysql
   DB_HOST: udc-cloud-exe2.cc7or3d6f7so.us-east-1.rds.amazonaws.com
-  DB_NAME: udagram2_dev
+  DB_NAME: udagram3_dev
 kind: ConfigMap
 metadata:
   name: udagram-cm
