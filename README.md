@@ -58,7 +58,7 @@ Be sure you are on the root of the solution.
 
 ## To deploy the application
 
-### AWS Commands to create Cluster
+### AWS Commands to create Cluster/Nodes
 
 Below the commands used to configure the environment. All the values mentioned here can be easily changed.
 
@@ -89,8 +89,44 @@ Below the commands used to configure the environment. All the values mentioned h
     
     # Now you should be able to connect eks using kubectl commands, try the command below
     kubectl get pods
+    
+    # Install the metrics server
+    kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
 In case your `kubectl get` commands failed to connect to the AWS environment, this may be related to the profile used, try to use the same profile used to create the environment
+
+### Install the solution
+
+After creating the Cluster and Nodes, we need to deploy all k8s objects
+
+    # Create K8s namespace
+    kubectl apply -f ./k8s/udagram-ns.yaml
+    
+    # Create secrets for Database access
+    kubectl create secret generic -n udagram udagram-secret \
+      --from-literal=DB_PASS=<PASSWORD> \
+      --from-literal=DB_USERNAME=<USERNAME TO ACCESS THE DATABASE>
+      
+    # Check the profile used to connect to AWS, pay attention to the profile used here. You will need it during the creation of secrets
+    aws sts get-caller-identity
+    
+    # Use a combination of head/tail command to identify lines you want to convert to base64
+    # You just need two correct lines: a right pair of aws_access_key_id and aws_secret_access_key, based on the profile used to connect on aws
+    # You need to change tail and head to meet your needs
+    cat ~/.aws/credentials | tail -n 5 | head -n 2
+
+    # Convert 
+    cat ~/.aws/credentials | tail -n 5 | head -n 2 | base64 > credentials
+    
+    # Create aws-secret, this will be used by the k8s services to connect to your bucket
+    kubectl create secret generic -n udagram aws-secret \
+      --from-file=credentials
+    
+    # Delete the credentials file
+    rm credentials
+    
+    # Create the rest of the k8s objects
+    kubectl apply -f ./k8s/.
 
 ### Accessing the frontend application
 
