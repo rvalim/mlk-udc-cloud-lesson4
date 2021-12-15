@@ -127,6 +127,9 @@ After creating the Cluster and Nodes, we need to deploy all k8s objects
     
     # Create the rest of the k8s objects
     kubectl apply -f ./k8s/.
+    
+    # Setting autoscale
+    kubectl autoscale deploy udagram-api-feed -n udagram --cpu-percent=70 --min=3 --max=5
 
 ### Accessing the frontend application
 
