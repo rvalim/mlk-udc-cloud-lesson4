@@ -119,6 +119,8 @@ The `udacity-c2-restapi.postman_collection.json` file can be imported into Postm
 ![](./evidences/travisci.png)
 
 ### Service Orchestration with Kubernetes
+
+#### Configure scaling and self-healing for each service
 ![kubectl describe hpa](./evidences/kubectl_desc_hpa.png)
 
 #### Deploy microservices using a Kubernetes cluster on AWS
