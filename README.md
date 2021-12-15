@@ -27,6 +27,8 @@ Here you will find the solution for the exercises.
  - Docker hub credentials configured and set
  - EKS client API
 
+To develop the application you will need a couple more things like NodeJS, but the focus here is how to deploy the solution.
+
 ## Container image publish
 
 We have a Continuous Integration system running under TravisCI, and this is responsible for building and publishing the image on the docker hub.
@@ -117,6 +119,7 @@ The `udacity-c2-restapi.postman_collection.json` file can be imported into Postm
 ![](./evidences/travisci.png)
 
 ### Service Orchestration with Kubernetes
+![kubectl describe hpa](./evidences/kubectl_desc_hpa.png)
 
 #### Deploy microservices using a Kubernetes cluster on AWS
 ![kubectl get pod,svc,ep](./evidences/kubectl_get.png)
