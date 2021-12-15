@@ -25,7 +25,13 @@ spec:
       containers:
       - image: lim0nes/udagram-api-feed:latest
         name: udagram-api-feed
-        resources: {}
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m" 
         volumeMounts:
           - name: aws-secret
             mountPath: "root/.aws"
